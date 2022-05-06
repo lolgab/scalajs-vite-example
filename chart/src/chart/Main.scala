@@ -1,5 +1,7 @@
+package chart
+
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
+import scala.scalajs.js.annotation._
 
 import com.raquo.laminar.api.L._
 import org.scalajs.dom
@@ -25,7 +27,7 @@ object Main {
               js.Array(
                 ChartDataSets()
                   .setLabel("# of Votes")
-                  .setData(js.Array(1, 19, 3, 5, 2, 3))
+                  .setData(js.Array(10, 19, 3, 5, 2, 3))
                   .setBackgroundColor(
                     js.Array(
                       "rgba(255, 99, 132, 0.2)",
@@ -62,7 +64,8 @@ object Main {
     })
   )
 
-  def main(args: Array[String]): Unit = {
+  @JSExportTopLevel("main")
+  def main(): Unit = {
     render(dom.document.getElementById("app"), app)
   }
 }

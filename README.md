@@ -1,6 +1,6 @@
-# Scala.js and Snowpack example
+# Scala.js and Vite example
 
-This example project shows how to use [Snowpack](https://snowpack.dev) together
+This example project shows how to use [Vite](https://vitejs.dev) together
 with [Scala.js](https://scala-js.org).
 
 ## Getting started
@@ -19,10 +19,10 @@ npm install
 ./mill --no-server -j 0 -w chart.publicDev
 ```
 
-- Run Snowpack dev server (in a separate terminal):
+- Run Vite dev server (in a separate terminal):
 
 ```bash
-npm run start
+npm run dev
 ```
 
 ## Production build
@@ -30,7 +30,7 @@ npm run start
 You need to run:
 
 ```bash
-./mill --no-server -j 0 chart.buildProd
+npm run build
 ```
 
-Now you can find your production build in the `build` folder.
+Now you can find your production build in the `dist` folder.

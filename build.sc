@@ -7,38 +7,30 @@ import mill.scalajslib._
 import mill.scalajslib.api._
 
 object chart extends ScalaJSModule {
-  def scalaVersion = "3.1.1"
-  def scalaJSVersion = "1.9.0"
+  def scalaVersion = "3.1.2"
+  def scalaJSVersion = "1.10.0"
   def moduleKind = ModuleKind.ESModule
+  def moduleSplitStyle = ModuleSplitStyle.SmallModulesFor(List("chart"))
   def moduleDeps = Seq(scalablytyped.module)
   def ivyDeps = Agg(
     ivy"com.raquo::laminar::0.14.2"
   )
-  private def public(dev: Boolean): Task[Map[String, String]] = {
-    val js = if (dev) fastOpt else fullOpt
-    T.task {
-      val dest = T.dest
-      val jsDir = js().path / os.up
-      os.list(jsDir).foreach { file =>
-        os.move(file, dest / file.last)
-      }
-      val mounts = Map(
-        dest -> "/",
-        os.pwd / "public" -> "/"
-      )
-      mounts.map { case (k, v) =>
-        k.relativeTo(os.pwd).toString -> v
-      }
-    }
-  }
   def publicDev = T {
-    public(dev = true)()
+    public(fastLinkJS)()
   }
   def publicProd = T {
-    public(dev = false)()
-  }
-  def buildProd = T {
-    publicProd()
-    os.proc("npm", "run", "build").call()
+    public(fullLinkJS)()
   }
 }
+
+case class Alias(find: String, replacement: os.Path)
+object Alias {
+  import upickle.default._
+  implicit val rw: ReadWriter[Alias] = macroRW
+}
+
+private def public(jsTask: Task[Report]): Task[Seq[Alias]] =
+  T.task {
+    val jsDir = jsTask().dest.path
+    Seq(Alias("@public", jsDir))
+  }
