@@ -1,7 +1,7 @@
 import { spawnSync } from "child_process";
 import { defineConfig } from "vite";
 
-alias = isDev()
+const alias = isDev()
   ? runMillCommand("chart.publicDev")
   : runMillCommand("chart.publicProd");
 
