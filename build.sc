@@ -7,8 +7,8 @@ import mill.scalajslib._
 import mill.scalajslib.api._
 
 object chart extends ScalaJSModule {
-  def scalaVersion = "3.1.2"
-  def scalaJSVersion = "1.10.0"
+  def scalaVersion = versions.scala
+  def scalaJSVersion = versions.scalajs
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.SmallModulesFor(List("chart"))
   def moduleDeps = Seq(scalablytyped.module)
