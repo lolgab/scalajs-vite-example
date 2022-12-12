@@ -23,14 +23,6 @@ object chart extends ScalaJSModule {
   }
 }
 
-case class Alias(find: String, replacement: os.Path)
-object Alias {
-  import upickle.default._
-  implicit val rw: ReadWriter[Alias] = macroRW
+def public(jsTask: Task[Report]): Task[Map[String, os.Path]] = T.task {
+  Map("@public" -> jsTask().dest.path)
 }
-
-private def public(jsTask: Task[Report]): Task[Seq[Alias]] =
-  T.task {
-    val jsDir = jsTask().dest.path
-    Seq(Alias("@public", jsDir))
-  }

@@ -1,4 +1,4 @@
-import { spawn, spawnSync } from "child_process";
+import { spawnSync } from "child_process";
 import { defineConfig } from "vite";
 
 var alias = isDev()
@@ -23,15 +23,6 @@ function runMillCommand(command) {
       "inherit", // StdErr.
     ],
   });
-
-  // Run watch mode as well
-  spawn("./mill", ["-w", command], {
-    stdio: [
-      "inherit", // StdIn.
-      "inherit", // StdOut.
-      "inherit", // StdErr.
-    ],
-  })
 
   return JSON.parse(result.stdout);
 }

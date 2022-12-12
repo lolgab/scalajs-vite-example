@@ -1,2 +1,2 @@
-val scala = "3.1.3"
-val scalajs = "1.10.1"
+val scala = "3.2.1"
+val scalajs = "1.12.0"
