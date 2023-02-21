@@ -9,7 +9,7 @@ import typings.chartJs.mod._
 
 object Main {
   val app = div(
-    canvas(onMountCallback { nodeCtx =>
+    canvasTag(onMountCallback { nodeCtx =>
       // Example taken from
       // https://www.chartjs.org/docs/latest/getting-started/usage.html#creating-a-chart
       val ctx = nodeCtx.thisNode.ref

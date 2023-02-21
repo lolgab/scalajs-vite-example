@@ -1,4 +1,4 @@
-import $file.project.versions
+import $file.project.base
 import $file.project.scalablytyped
 import mill._
 import mill.define.Task
@@ -6,14 +6,12 @@ import mill.scalalib._
 import mill.scalajslib._
 import mill.scalajslib.api._
 
-object chart extends ScalaJSModule {
-  def scalaVersion = versions.scala
-  def scalaJSVersion = versions.scalajs
+object chart extends base.JS {
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.SmallModulesFor(List("chart"))
   def moduleDeps = Seq(scalablytyped.module)
   def ivyDeps = Agg(
-    ivy"com.raquo::laminar::0.14.2"
+    ivy"com.raquo::laminar::15.0.0-M6"
   )
   def publicDev = T {
     public(fastLinkJS)()
