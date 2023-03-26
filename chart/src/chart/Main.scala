@@ -17,7 +17,7 @@ import typings.chartJs.chartJsStrings._
 import typings.chartJs.mod._
 
 object Main {
-  Chart.register(
+  def registerComponents(): Unit = Chart.register(
     js.Array(
       BarController.^,
       BarElement.^,
@@ -71,6 +71,7 @@ object Main {
 
   @JSExportTopLevel("main")
   def main(): Unit = {
-    render(dom.document.getElementById("app"), app)
+    registerComponents()
+    renderOnDomContentLoaded(dom.document.getElementById("app"), app)
   }
 }

@@ -1,22 +1,26 @@
 import { spawnSync } from "child_process";
 import { defineConfig } from "vite";
 
-var alias = isDev()
-  ? runMillCommand("chart.publicDev")
-  : runMillCommand("chart.publicProd");
-
-export default defineConfig({
-  resolve: {
-    alias: alias,
-  },
-});
-
-function isDev() {
-  return process.env.NODE_ENV !== "production";
+function alias(mode) {
+  if (mode === "development") return runMillTask("chart.publicDev");
+  if (mode === "production") return runMillTask("chart.publicProd");
+  const prefix = "test:";
+  if (mode.startsWith(prefix))
+    return {
+      "@public": mode.substring(prefix.length),
+    };
 }
 
-function runMillCommand(command) {
-  const result = spawnSync("./mill", ["show", command], {
+export default defineConfig(({ mode }) => {
+  return {
+    resolve: {
+      alias: alias(mode),
+    },
+  };
+});
+
+function runMillTask(task) {
+  const result = spawnSync("./mill", ["show", task], {
     stdio: [
       "pipe", // StdIn.
       "pipe", // StdOut.
