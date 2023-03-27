@@ -1,3 +1,4 @@
+import mill.modules.Jvm
 import mill.scalajslib._
 import mill.scalajslib.api._
 
@@ -6,16 +7,20 @@ trait TestModule extends TestScalaJSModule {
   override def fastLinkJSTest = T {
     val dest = T.dest
     val report = super.fastLinkJSTest()
-    os.proc(
-      "npm",
-      "run",
-      "build",
-      "--",
-      "--mode",
-      s"test:${report.dest.path}",
-      "--outDir",
-      dest
-    ).call()
+    Jvm.runSubprocess(
+      commandArgs = Seq(
+        "npm",
+        "run",
+        "build",
+        "--",
+        "--mode",
+        s"test:${report.dest.path}",
+        "--outDir",
+        dest.toString
+      ),
+      envArgs = Map(),
+      workingDir = T.workspace
+    )
     val jsFolder = dest / "assets"
     Report(
       publicModules = os
