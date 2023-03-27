@@ -37,6 +37,14 @@ Now you can find your production build in the `dist` folder.
 
 ## Testing
 
+You can run the tests with:
+
+```
+./mill __.test
+```
+
+### Running specific tests
+
 To test the dom we use jsdom. jsdom doesn't support modules so we need
 building the app with Vite first. This is done in [project/vite.sc](./project/vite.sc)
 
