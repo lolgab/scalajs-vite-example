@@ -2,8 +2,8 @@ import { spawnSync } from "child_process";
 import { defineConfig } from "vite";
 
 function alias(mode) {
-  if (mode === "development") return runMillTask("chart.publicDev");
-  if (mode === "production") return runMillTask("chart.publicProd");
+  if (mode === "development") return runMillTask("publicDev");
+  if (mode === "production") return runMillTask("publicProd");
   const prefix = "test:";
   if (mode.startsWith(prefix))
     return {
