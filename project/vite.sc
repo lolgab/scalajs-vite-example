@@ -1,4 +1,5 @@
-import mill.modules.Jvm
+import mill._
+import mill.util.Jvm
 import mill.scalajslib._
 import mill.scalajslib.api._
 

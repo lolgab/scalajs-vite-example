@@ -8,7 +8,7 @@ import mill.scalalib._
 import mill.scalajslib._
 import mill.scalajslib.api._
 
-object chart extends base.JS {
+object root extends RootModule with base.JS {
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.SmallModulesFor(List("chart"))
   def moduleDeps = Seq(scalablytyped.module)

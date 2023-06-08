@@ -22,7 +22,7 @@ npm run dev
 - Start rebuilding the Javascript code on every source change  (in another terminal):
 
 ```bash
-./mill -w chart.publicDev
+./mill -w publicDev
 ```
 
 ## Production build
@@ -54,7 +54,7 @@ separate test suites.
 With:
 
 ```
-./mill chart.test-pure
+./mill test-pure
 ```
 
 You run the pure test suite which doesn't have access to the dom,
@@ -62,7 +62,7 @@ You run the pure test suite which doesn't have access to the dom,
 With:
 
 ```
-./mill chart.test-dom
+./mill test-dom
 ```
 
 You can run tests that require the dom against jsdom.

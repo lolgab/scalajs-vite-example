@@ -1,4 +1,4 @@
-import $ivy.`com.github.lolgab::mill-scalablytyped::0.1.4`
+import $ivy.`com.github.lolgab::mill-scalablytyped::0.1.11`
 import com.github.lolgab.mill.scalablytyped.ScalablyTyped
 import $file.base
 
