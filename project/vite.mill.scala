@@ -1,3 +1,5 @@
+package build.project
+
 import mill._
 import mill.util.Jvm
 import mill.scalajslib._

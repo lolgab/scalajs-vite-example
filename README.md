@@ -22,7 +22,7 @@ npm run dev
 - Start rebuilding the Javascript code on every source change  (in another terminal):
 
 ```bash
-./mill -i -w publicDev
+./mill -w publicDev
 ```
 
 ## Production build
