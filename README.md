@@ -46,7 +46,7 @@ You can run the tests with:
 ### Running specific tests
 
 To test the dom we use jsdom. jsdom doesn't support modules so we need
-building the app with Vite first. This is done in [project/vite.sc](./project/vite.sc)
+building the app with Vite first. This is done in [project/vite.mill.scala](./project/vite.mill.scala)
 
 Since this is slower than just building the tests with Scala.js we define two
 separate test suites.
