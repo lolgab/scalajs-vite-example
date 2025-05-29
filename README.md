@@ -40,7 +40,7 @@ Now you can find your production build in the `dist` folder.
 You can run the tests with:
 
 ```
-./mill __.test
+./mill __.testForked
 ```
 
 ### Running specific tests
