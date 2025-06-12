@@ -1,6 +1,6 @@
-//| mill-version: 1.0.0-RC1
+//| mill-version: 1.0.0-RC2
 //| mvnDeps:
-//|   - com.github.lolgab::mill-scalablytyped_mill1.0.0-RC1:0.2.0-M1
+//|   - com.github.lolgab::mill-scalablytyped_mill1.0.0-RC2:0.2.0-M2
 
 package build
 
