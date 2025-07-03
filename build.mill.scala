@@ -1,11 +1,10 @@
-//| mill-version: 1.0.0-RC2
+//| mill-version: 1.0.0-RC3
 //| mvnDeps:
-//|   - com.github.lolgab::mill-scalablytyped_mill1.0.0-RC2:0.2.0-M2
+//|   - com.github.lolgab::mill-scalablytyped::0.2.0-M4
 
 package build
 
 import mill._
-import mill.define.Task
 import mill.scalalib._
 import mill.scalajslib._
 import mill.scalajslib.api._
